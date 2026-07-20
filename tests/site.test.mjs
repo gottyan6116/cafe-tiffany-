@@ -44,3 +44,20 @@ test("README documents the local verification command and image replacement path
   assert.match(readme, /npm test/);
   assert.match(readme, /assets\/images/);
 });
+
+test("site adds Tiffany-specific story, social proof, Instagram routes, and editable operating hours", () => {
+  const html = read("index.html");
+  const css = read("assets/css/style.css");
+  const readme = read("README.md");
+
+  for (const hook of ["owner-message", "testimonials", "instagram-feed", "instagram-icon", "hours-table"]) {
+    assert.match(html, new RegExp(hook));
+  }
+  assert.match(html, /ここにInstagram埋め込みコードを挿入/);
+  assert.match(html, /営業時間は店舗確認前の仮表示です/);
+  assert.match(html, /[［\[]創業年数[］\]]/);
+  assert.match(css, /scroll-snap-type: x mandatory/);
+  assert.match(css, /--wood:/);
+  assert.match(css, /--brass:/);
+  assert.match(readme, /差し替えが必要な写真/);
+});
