@@ -76,7 +76,9 @@ test("site prioritizes asymmetric photography over occasion cards and secondary 
   assert.match(html, /hero-menu-link/);
   assert.doesNotMatch(html, /hero-menu-link button/);
   assert.match(html, /space-documentary/);
-  assert.match(css, /grid-template-areas:\s*"feature feature side"/);
+  assert.match(css, /grid-template-areas:\s*"feature group"\s*"solo group"/);
+  assert.match(css, /\.occasion-photo-group \{ grid-area: group; align-self: stretch;/);
+  assert.match(css, /grid-template-areas:\s*"feature"\s*"solo"\s*"group"/);
   assert.match(css, /\.menu-photo-layout/);
   assert.match(css, /\.hero \.button-primary/);
   assert.match(css, /\.hero-menu-link/);
