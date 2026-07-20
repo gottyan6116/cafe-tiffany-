@@ -61,3 +61,21 @@ test("site adds Tiffany-specific story, social proof, Instagram routes, and edit
   assert.match(css, /--brass:/);
   assert.match(readme, /差し替えが必要な写真/);
 });
+
+test("site prioritizes asymmetric photography over occasion cards and secondary CTAs", () => {
+  const html = read("index.html");
+  const css = read("assets/css/style.css");
+  const readme = read("README.md");
+
+  assert.match(html, /occasion-photo-layout/);
+  assert.doesNotMatch(html, /occasion-grid/);
+  assert.doesNotMatch(html, /<span>0[123]<\/span><h3>ひとりの時間に/);
+  assert.match(html, /hero-menu-link/);
+  assert.doesNotMatch(html, /hero-menu-link button/);
+  assert.match(html, /space-documentary/);
+  assert.match(css, /grid-template-areas:\s*"feature feature side"/);
+  assert.match(css, /\.hero \.button-primary/);
+  assert.match(css, /\.hero-menu-link/);
+  assert.match(css, /padding: clamp\(126px, 16vw, 220px\) 0/);
+  assert.match(readme, /装飾の見直し/);
+});

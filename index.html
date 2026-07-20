@@ -49,7 +49,7 @@
           <p class="hero-copy">［看板メニュー名］は、［生まれたきっかけ］から生まれました。<br />カウンターでは、［常連のお客様の過ごし方］が静かに続いています。</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#reservation">ご予約・相談する</a>
-            <a class="button button-quiet" href="#menu">メニューを見る <span aria-hidden="true">↓</span></a>
+            <a class="hero-menu-link" href="#menu">メニューを見る <span aria-hidden="true">↓</span></a>
           </div>
         </div>
         <div class="hero-scroll" aria-hidden="true"><span>SCROLL TO DISCOVER</span><i></i></div>
@@ -109,27 +109,26 @@
         <div class="space-panel" data-reveal>
           <p class="eyebrow">ABOUT TIFFANY</p>
           <h2 id="space-title">［看板メニュー名］の香りと、<br />木のカウンターのある午後。</h2>
-          <p>昼は［常連のお客様の過ごし方］、午後は［店内のいつもの風景］。Tiffanyらしい時間を、店の中にある色と家具からお伝えします。</p>
+          <p class="space-caption">［湯気の立つコーヒーと、窓から差す午後の光。］</p>
           <aside class="owner-message">
             <p class="owner-label">店主より</p>
-            <p>［ここに店主またはスタッフの写真を掲載］</p>
-            <p>「［お客様に伝えたい一言。たとえば、今日の気分のままで、ゆっくりしていってください。］」</p>
+            <p>［店主またはスタッフの写真と、2〜3行のメッセージをここへ掲載］</p>
           </aside>
-          <a class="button button-secondary" href="#gallery">店内の雰囲気を見る</a>
+          <a class="text-link" href="#gallery">店内の雰囲気を見る <span aria-hidden="true">→</span></a>
         </div>
-        <div class="space-image" data-reveal><img src="assets/images/interior-wide.jpg" alt="木の家具と赤白ギンガムのテーブルクロスが並ぶ明るい店内" width="950" height="720" loading="lazy" /></div>
+        <div class="space-image space-documentary" data-reveal><img src="assets/images/dessert-coffee.jpg" alt="木のテーブルに置かれたコーヒーとデザート" width="711" height="711" loading="lazy" /><p>午後の一杯が、ゆっくり冷めていく時間。</p></div>
       </section>
 
       <section class="occasions section" id="occasions" aria-labelledby="occasions-title">
-        <div class="content-shell">
-          <div class="section-heading section-heading-centered" data-reveal>
+        <div class="content-shell occasions-intro">
+          <div class="section-heading" data-reveal>
             <div><p class="eyebrow">OCCASIONS</p><h2 id="occasions-title">こんな時間に、ご利用ください。</h2></div>
           </div>
-          <div class="occasion-grid">
-            <article class="occasion" data-reveal><span>01</span><h3>ひとりの時間に</h3><p>コーヒーと甘いものをお供に、自分のペースで過ごす午後。</p></article>
-            <article class="occasion" data-reveal><span>02</span><h3>友人・家族と</h3><p>今日あったことを話しながら、気取らない食事の時間を。</p></article>
-            <article class="occasion" data-reveal><span>03</span><h3>集まりのご相談に</h3><p>貸切・イベント・撮影などは、条件を添えてご相談ください。</p></article>
-          </div>
+        </div>
+        <div class="occasion-photo-layout content-shell">
+          <figure class="occasion-photo occasion-photo-feature"><img src="assets/images/interior-wide.jpg" alt="赤白ギンガムのテーブルクロスと木の椅子が並ぶ店内" width="950" height="720" loading="lazy" /><figcaption><strong>友人・家族と</strong><span>話がつづく、いつものテーブル。</span></figcaption></figure>
+          <figure class="occasion-photo occasion-photo-solo"><img src="assets/images/dessert-coffee.jpg" alt="木のテーブルに置かれたコーヒーとデザート" width="711" height="711" loading="lazy" /><figcaption><strong>ひとりの時間に</strong><span>もう一杯だけ、ゆっくりと。</span></figcaption></figure>
+          <figure class="occasion-photo occasion-photo-group"><img src="assets/images/interior-counter.jpg" alt="木のカウンターと席が見える店内" width="958" height="953" loading="lazy" /><figcaption><strong>集まりのご相談に</strong><span>貸切・イベントは条件を添えてご相談ください。</span></figcaption></figure>
         </div>
       </section>
 
@@ -181,7 +180,7 @@
             <div class="form-row split"><div><label for="date">希望日</label><input id="date" name="date" type="date" /></div><div><label for="guests">人数</label><select id="guests" name="guests"><option value="">選択してください</option><option>1名</option><option>2名</option><option>3名</option><option>4名</option><option>5名以上</option></select></div></div>
             <div class="form-row"><label for="purpose">ご用件 <b>必須</b></label><select id="purpose" name="purpose" required><option value="">選択してください</option><option>通常のご予約相談</option><option>貸切・イベントの相談</option><option>撮影利用の相談</option><option>その他のお問い合わせ</option></select></div>
             <div class="form-row"><label for="message">ご相談内容</label><textarea id="message" name="message" rows="4" placeholder="希望時間、用途などをご記入ください"></textarea></div>
-            <button class="button button-primary form-submit" type="submit">予約希望を送る</button>
+            <button class="button button-secondary form-submit" type="submit">予約希望を送る</button>
             <p class="form-note">送信先メールアドレスの設定後にご利用いただけます。お急ぎの場合はお電話ください。</p>
             <p class="form-status" id="form-status" aria-live="polite"></p>
           </form>
