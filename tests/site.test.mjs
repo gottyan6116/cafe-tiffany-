@@ -97,3 +97,22 @@ test("Voices section presents real, attributed reviews with links back to their 
   assert.match(css, /\.voices-rail/);
   assert.match(css, /\.star-fill/);
 });
+
+test("visit planning presents Google Maps, the official Instagram profile, and a visible reservation form", () => {
+  const html = read("index.html");
+  const css = read("assets/css/style.css");
+
+  assert.match(html, /id="visit-information"/);
+  assert.match(html, /class="google-map-embed"/);
+  assert.match(html, /title="Cafe Kitchen TiffanyのGoogleマップ"/);
+  assert.match(html, /Googleマップで最新の口コミを見る/);
+  assert.match(html, /class="instagram-profile-card"/);
+  assert.match(html, /@sakurajousuitiffany/);
+  assert.match(html, /Instagramでプロフィールを開く/);
+  assert.match(html, /<form class="reservation-form" id="reservation-form" data-recipient="" data-reveal>/);
+  assert.doesNotMatch(html, /<form[^>]+id="reservation-form"[^>]+hidden/);
+  assert.doesNotMatch(html, /reservation-phone-only/);
+  assert.match(css, /\.visit-information-grid/);
+  assert.match(css, /\.google-map-embed/);
+  assert.match(css, /\.instagram-profile-card/);
+});
