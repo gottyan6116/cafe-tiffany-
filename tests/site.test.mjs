@@ -45,17 +45,20 @@ test("README documents the local verification command and image replacement path
   assert.match(readme, /assets\/images/);
 });
 
-test("site adds Tiffany-specific story, social proof, Instagram routes, and editable operating hours", () => {
+test("site keeps provisional content out of the public page and links reviews to Google Maps", () => {
   const html = read("index.html");
   const css = read("assets/css/style.css");
   const readme = read("README.md");
 
-  for (const hook of ["owner-message", "testimonials", "instagram-feed", "instagram-icon", "hours-table"]) {
+  for (const hook of ["google-reviews-link", "instagram-feed", "instagram-icon", "menu-photo-layout"]) {
     assert.match(html, new RegExp(hook));
   }
-  assert.match(html, /ここにInstagram埋め込みコードを挿入/);
-  assert.match(html, /営業時間は店舗確認前の仮表示です/);
-  assert.match(html, /[［\[]創業年数[］\]]/);
+  assert.doesNotMatch(html, /[［\[][^］\]]+[］\]]/);
+  assert.doesNotMatch(html, /POST 0[1-4]/);
+  assert.doesNotMatch(html, /id="testimonials"/);
+  assert.match(html, /id="instagram-feed" hidden/);
+  assert.doesNotMatch(html, /hours-table/);
+  assert.doesNotMatch(html, /menu-card/);
   assert.match(css, /scroll-snap-type: x mandatory/);
   assert.match(css, /--wood:/);
   assert.match(css, /--brass:/);
@@ -74,6 +77,7 @@ test("site prioritizes asymmetric photography over occasion cards and secondary 
   assert.doesNotMatch(html, /hero-menu-link button/);
   assert.match(html, /space-documentary/);
   assert.match(css, /grid-template-areas:\s*"feature feature side"/);
+  assert.match(css, /\.menu-photo-layout/);
   assert.match(css, /\.hero \.button-primary/);
   assert.match(css, /\.hero-menu-link/);
   assert.match(css, /padding: clamp\(126px, 16vw, 220px\) 0/);
