@@ -83,3 +83,17 @@ test("site prioritizes asymmetric photography over occasion cards and secondary 
   assert.match(css, /padding: clamp\(126px, 16vw, 220px\) 0/);
   assert.match(readme, /装飾の見直し/);
 });
+
+test("Voices section presents real, attributed reviews with links back to their source", () => {
+  const html = read("index.html");
+  const css = read("assets/css/style.css");
+
+  assert.match(html, /<section[^>]+id="voices"/);
+  assert.match(html, /class="voice-item"/);
+  assert.match(html, /食べログより/);
+  assert.match(html, /href="https:\/\/tabelog\.com\/tokyo\/A1318\/A131809\/13048064\/dtlrvwlst\/"/);
+  assert.match(html, /class="google-reviews-link"/);
+  assert.doesNotMatch(html, /id="testimonials"/);
+  assert.match(css, /\.voices-rail/);
+  assert.match(css, /\.star-fill/);
+});
