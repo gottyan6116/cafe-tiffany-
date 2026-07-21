@@ -109,7 +109,8 @@ test("visit planning presents Google Maps, the official Instagram profile, and a
   assert.match(html, /title="Cafe Kitchen TiffanyのGoogleマップ"/);
   assert.match(html, /Googleマップで最新の口コミを見る/);
   assert.match(html, /class="instagram-profile-card"/);
-  assert.match(html, /@sakurajousuitiffany/);
+  assert.match(html, /@sakurajosuitiffany/);
+  assert.doesNotMatch(html, /@sakurajousuitiffany/);
   assert.match(html, /Instagramでプロフィールを開く/);
   assert.match(html, /<form class="reservation-form" id="reservation-form" data-recipient="" data-reveal>/);
   assert.doesNotMatch(html, /<form[^>]+id="reservation-form"[^>]+hidden/);
